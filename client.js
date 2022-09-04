@@ -9,8 +9,8 @@ const connect = function() {
   conn.on('connect', () => {
     console.log("Successfully Connected!");
     conn.write("Name: SCL");
+    
   });
-  
 
   
   conn.on('data', (data) => {
