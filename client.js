@@ -12,7 +12,6 @@ const connect = function() {
     
   });
 
-  
   conn.on('data', (data) => {
     console.log(data.toString());
     conn.end();
@@ -20,6 +19,7 @@ const connect = function() {
 
   conn.on('end', () => {
     console.log("You have been disconnected.");
+    process.exit();
   });
 
   conn.setEncoding('utf8');
