@@ -1,11 +1,13 @@
 const net = require('net');
+const { IP, PORT } = require('./constants');
 
 const connect = function() {
   const conn = net.createConnection({
-    host: 'localhost',
-    port: 3000
+    host: IP,
+    port: PORT
   })
 
+  // on connect message
   conn.on('connect', () => {
     console.log("Successfully Connected!");
     conn.write("Name: SCL");
@@ -17,6 +19,7 @@ const connect = function() {
     conn.end();
   });
 
+  // message to client when disconnected
   conn.on('end', () => {
     console.log("You have been disconnected.");
     process.exit();
